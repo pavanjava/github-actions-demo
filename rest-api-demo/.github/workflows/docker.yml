@@ -10,10 +10,11 @@ env:
 jobs:
   build:
     name: Build container image
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        run: docker build . --file Dockerfile --tag helloworld-api:latest
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
